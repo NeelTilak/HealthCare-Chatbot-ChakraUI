@@ -1,25 +1,11 @@
-// import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Footer from "./components/Footer";
-import Header from './components/Header';
-import Home from "./components/Home";
-import Tools from "./components/Tools";
-import Bmr from "./components/Bmr";
-import Bmi from "./components/Bmi";
-import WomenHealth from "./components/WomenHealth";
-import HealthyDiet from "./components/HeathyDiet";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
-
-
+import React from 'react'
 import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
-import Contact from "./components/Contact";
 
 const steps = [
     {
         id: '0',
-        message: 'Hey!',
+        message: 'Hey Geek!',
  
         // This calls the next id
         // i.e. id 1 in this case
@@ -49,8 +35,8 @@ const steps = [
             // When we need to show a number of
             // options to choose we create alist
             // like this
-            { value: 1, label: 'dieseas' },
-            { value: 2, label: 'prediction' },
+            { value: 1, label: 'View Courses' },
+            { value: 2, label: 'Read Articles' },
  
         ],
         end: true
@@ -76,47 +62,22 @@ const config = {
 };
  
 
-
-
-function App() {
+const chatBot = () => {
   return (
-    <>
-    <Router>
-      <Header />
-      <div className="App">
+    <div className="App">
             <ThemeProvider theme={theme}>
                 <ChatBot
  
                     // This appears as the header
                     // text for the chat bot
-                    headerTitle="Health Care Chatbot"
+                    headerTitle="GeekBot"
                     steps={steps}
                     {...config}
  
                 />
             </ThemeProvider>
         </div>
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/tools" element={<Tools/>}/>
-        <Route path="/tools/bmr" element={<Bmr/>}/>
-        <Route path="/tools/bmr" element={<Bmi/>}/>
-        <Route path="/tools/hl/womenhealth" element={<WomenHealth/>}/>
-        <Route path="/tools/hl/healthydiet" element={<HealthyDiet/>}/>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/contact" element={<Contact />} />
-
-
-
-        
-
-      </Routes>
-      {/* <chatBot/> */}
-      <Footer/>
-    </Router>
-    </>
-  );
+  )
 }
 
-export default App;
+export default chatBot
